@@ -1,6 +1,6 @@
 import unittest
 
-from greeter import MAX_NAME_LENGTH, greet
+from greeter import MAX_NAME_LENGTH, farewell, greet
 
 
 class GreetTests(unittest.TestCase):
@@ -30,6 +30,35 @@ class GreetTests(unittest.TestCase):
         for name in (None, 42, ["Tom"]):
             with self.subTest(name=name), self.assertRaises(TypeError):
                 greet(name)
+
+
+class FarewellTests(unittest.TestCase):
+    def test_says_goodbye_to_name(self):
+        self.assertEqual(farewell("Tom"), "Goodbye, Tom!")
+
+    def test_strips_whitespace(self):
+        self.assertEqual(farewell("  Tom \n"), "Goodbye, Tom!")
+
+    def test_keeps_non_ascii_names(self):
+        self.assertEqual(farewell("Ærlige Åse"), "Goodbye, Ærlige Åse!")
+
+    def test_accepts_name_at_max_length(self):
+        name = "a" * MAX_NAME_LENGTH
+        self.assertEqual(farewell(name), f"Goodbye, {name}!")
+
+    def test_rejects_empty_name(self):
+        for name in ("", "   ", "\t\n"):
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                farewell(name)
+
+    def test_rejects_too_long_name(self):
+        with self.assertRaises(ValueError):
+            farewell("a" * (MAX_NAME_LENGTH + 1))
+
+    def test_rejects_non_string(self):
+        for name in (None, 42, ["Tom"]):
+            with self.subTest(name=name), self.assertRaises(TypeError):
+                farewell(name)
 
 
 if __name__ == "__main__":

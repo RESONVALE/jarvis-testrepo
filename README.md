@@ -4,15 +4,17 @@
 
 ## greeter
 
-Et lite Python-prosjekt (Python 3.9+, ingen avhengigheter) med funksjonen `greet`:
+Et lite Python-prosjekt (Python 3.9+, ingen avhengigheter) med funksjonene `greet`
+og `farewell`:
 
 ```python
-from greeter import greet
+from greeter import farewell, greet
 
 greet("Tom")  # "Hello, Tom!"
+farewell("Tom")  # "Goodbye, Tom!"
 ```
 
-`greet` fjerner mellomrom rundt navnet, og gir `TypeError` hvis navnet ikke er en
+Begge fjerner mellomrom rundt navnet, og gir `TypeError` hvis navnet ikke er en
 streng, og `ValueError` hvis det er tomt eller lengre enn 100 tegn.
 
 Kjør testene fra rotmappen:
