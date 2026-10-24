@@ -11,7 +11,7 @@ og `farewell`:
 from greeter import farewell, greet
 
 greet("Tom")  # "Hello, Tom!"
-farewell("Tom")  # "Goodbye, Tom!"
+farewell("Tom")  # "Ha det, Tom!"
 ```
 
 Begge fjerner mellomrom rundt navnet, og gir `TypeError` hvis navnet ikke er en

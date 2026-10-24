@@ -26,8 +26,8 @@ def greet(name: str) -> str:
 
 
 def farewell(name: str) -> str:
-    """Return a farewell for ``name``.
+    """Return a Norwegian farewell for ``name``, e.g. "Ha det, Tom!".
 
     Validates ``name`` the same way as ``greet``.
     """
-    return f"Goodbye, {_clean_name(name)}!"
+    return f"Ha det, {_clean_name(name)}!"

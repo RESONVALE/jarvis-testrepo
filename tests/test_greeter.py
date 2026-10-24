@@ -33,18 +33,18 @@ class GreetTests(unittest.TestCase):
 
 
 class FarewellTests(unittest.TestCase):
-    def test_says_goodbye_to_name(self):
-        self.assertEqual(farewell("Tom"), "Goodbye, Tom!")
+    def test_says_ha_det_to_name(self):
+        self.assertEqual(farewell("Tom"), "Ha det, Tom!")
 
     def test_strips_whitespace(self):
-        self.assertEqual(farewell("  Tom \n"), "Goodbye, Tom!")
+        self.assertEqual(farewell("  Tom \n"), "Ha det, Tom!")
 
     def test_keeps_non_ascii_names(self):
-        self.assertEqual(farewell("Ærlige Åse"), "Goodbye, Ærlige Åse!")
+        self.assertEqual(farewell("Ærlige Åse"), "Ha det, Ærlige Åse!")
 
     def test_accepts_name_at_max_length(self):
         name = "a" * MAX_NAME_LENGTH
-        self.assertEqual(farewell(name), f"Goodbye, {name}!")
+        self.assertEqual(farewell(name), f"Ha det, {name}!")
 
     def test_rejects_empty_name(self):
         for name in ("", "   ", "\t\n"):
